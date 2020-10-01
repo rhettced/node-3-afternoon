@@ -5,7 +5,7 @@ module.exports = {
         const {name,description,price,image_url} = req.body;
         //console.log(name,description,price,image_url);
         db.create_product( {name, description,price,image_url} )
-        .then(() => {res.sendStatus(200)})
+        .then((product) => {res.status(200).send(product)})
         .catch(err => console.log(err))
     },
     getOne: (req,res, next) =>{
